@@ -1,10 +1,11 @@
 # database-doc-generator
-数据库文档生成器
 
-- 该工具根据给定的链接生成数据库文档，如果你嫌powerdesigner太重，那么可以试试该工具。
-- 你可以下载[release](https://github.com/enilu/database-doc-generator/releases/tag/1.0)包来或者下载源代码来使用。
-- 如果使用源代码，需要先克隆该项目后运行mvn package打包，然后运行发布报中bin/start.bat
-- 运行程序后按照下面提示输入对应数据库参数：
+Database Document Generator
+
+- This tool generates database documentation based on the given link. If you think powerdesigner is too heavy, then you can try this tool.
+- You can download the [release package](https://github.com/enilu/database-doc-generator/releases/tag/1.0) or download the source code to use.
+- If you use the source code, you need to clone the project, run mvn package, and then run bin / start.bat in the release report.
+- After running the program, enter the corresponding database parameters as prompted:
 
 ```bash
 choose database:
@@ -25,11 +26,11 @@ input password:
 123456
 
 ```
-- 输入完成后回车，即可生成数据库文档目录${dbname}-doc,目录中文档以markdown文件为载体：
+-After completing the input, press Enter to generate the database document directory $ {dbname} -doc. The documents in the directory are based on the markdown file:：
 
 ![doc](doc.jpg)
 
-- 确保安装了gitbook后，进入上述文件目录的命令行窗口运行：gitbook serve
+- Make sure that after installing gitbook, enter the command line window of the above file directory and run: gitbook serve
 ```bash
 E:\\database-doc-generator-20181006100721\guns-lite-doc>gitbook serve
 openssl config failed: error:02001003:system library:fopen:No such process
@@ -51,7 +52,7 @@ info: >> generation finished with success in 1.6s !
 Starting server ...
 Serving book on http://localhost:4000
 ```
-- 访问 http://localhost:4000，即可在线查看数据库文档
+- Visit http: // localhost: 4000 to view database documentation online
 
 ![summary](summary.jpg)
 
