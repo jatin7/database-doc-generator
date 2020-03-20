@@ -13,8 +13,9 @@ import java.io.*;
  */
 public class Html2DocConverter {
 
-    private String inputPath;    // 输入文件路径，以.html结尾
-    private String outputPath;    // 输出文件路径，以.doc结尾
+    private String inputPath;    // Input file path，End in .html
+    private String outputPath;    //Output file path, ending with .doc
+
 
     public Html2DocConverter(String inputPath, String outputPath) {
         super();
@@ -23,10 +24,10 @@ public class Html2DocConverter {
     }
 
     /**
-     * 读取html文件到word
+     * Read html file to word
      *
      * @param filepath
-     *            html文件的路径
+     *            html file path
      * @return
      * @throws Exception
      */
@@ -35,21 +36,21 @@ public class Html2DocConverter {
         InputStream is = null;
         FileOutputStream fos = null;
 
-        // 1 找不到源文件, 则返回false
+        // 1 Cannot find source file, return false
         File inputFile = new File(this.inputPath);
         if (!inputFile.exists()) {
             return false;
         }
 
         File outputFile = new File(this.outputPath);
-        // 2 如果目标路径不存在 则新建该路径
+        // 2 If the target path does not exist, create a new path
         if (!outputFile.getParentFile().exists()) {
             outputFile.getParentFile().mkdirs();
         }
 
         try {
 
-            // 3 将html文件内容写入doc文件
+            // 3 Write html file content to doc file
             is = new FileInputStream(inputFile);
             POIFSFileSystem poifs = new POIFSFileSystem();
             DirectoryEntry directory = poifs.getRoot();
