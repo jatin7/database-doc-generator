@@ -1,6 +1,7 @@
-package cn.enilu.tool.database.doc.generator;
+package com.tool.database.doc.generator;
 
-import cn.enilu.tool.database.doc.generator.database.*;
+import com.tool.database.doc.generator.database.*;
+import com.tool.database.doc.generator.database.*;
 import org.nutz.dao.impl.SimpleDataSource;
 
 import java.util.Scanner;

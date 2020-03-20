@@ -1,4 +1,4 @@
-package cn.enilu.tool.database.doc.generator.bean;
+package com.tool.database.doc.generator.bean;
 
 /**
  * ColumnVo

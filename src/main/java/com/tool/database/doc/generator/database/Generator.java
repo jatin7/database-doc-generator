@@ -1,8 +1,8 @@
-package cn.enilu.tool.database.doc.generator.database;
+package com.tool.database.doc.generator.database;
 
-import cn.enilu.tool.database.doc.generator.bean.ColumnVo;
-import cn.enilu.tool.database.doc.generator.bean.TableVo;
-import cn.enilu.tool.database.doc.generator.doc.WordGenerator;
+import com.tool.database.doc.generator.bean.ColumnVo;
+import com.tool.database.doc.generator.bean.TableVo;
+import com.tool.database.doc.generator.doc.WordGenerator;
 import org.nutz.dao.Dao;
 import org.nutz.dao.Sqls;
 import org.nutz.dao.entity.Record;

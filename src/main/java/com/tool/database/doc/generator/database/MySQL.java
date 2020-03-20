@@ -1,6 +1,6 @@
-package cn.enilu.tool.database.doc.generator.database;
-import cn.enilu.tool.database.doc.generator.bean.ColumnVo;
-import cn.enilu.tool.database.doc.generator.bean.TableVo;
+package com.tool.database.doc.generator.database;
+import com.tool.database.doc.generator.bean.ColumnVo;
+import com.tool.database.doc.generator.bean.TableVo;
 import org.nutz.dao.entity.Record;
 import org.nutz.dao.impl.SimpleDataSource;
 

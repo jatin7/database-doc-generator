@@ -1,7 +1,7 @@
-package cn.enilu.tool.database.doc.generator.doc;
+package com.tool.database.doc.generator.doc;
 
-import cn.enilu.tool.database.doc.generator.bean.ColumnVo;
-import cn.enilu.tool.database.doc.generator.bean.TableVo;
+import com.tool.database.doc.generator.bean.ColumnVo;
+import com.tool.database.doc.generator.bean.TableVo;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 
