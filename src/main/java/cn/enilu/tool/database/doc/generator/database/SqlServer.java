@@ -20,7 +20,7 @@ public class SqlServer extends Generator {
             + "  LEFT JOIN sysobjects tbs ON\n" + "  ds.major_id=tbs.id\n" + "WHERE  ds.minor_id=0";
     private String sqlColumns = "\n" + "SELECT\n" + "    column_name=C.name,\n"
             + "    column_key=ISNULL(IDX.PrimaryKey,N''),\n" + "    column_type=T.name,\n"
-            + "    is_nullable=CASE WHEN C.is_nullable=1 THEN N'是'ELSE N'否' END,\n"
+            + "    is_nullable=CASE WHEN C.is_nullable=1 THEN N'Yes'ELSE N'No' END,\n"
             + "    column_comment=ISNULL(cast(PFD.[value] AS VARCHAR(500)),N'')\n" + "FROM sys.columns C\n"
             + "  INNER JOIN sys.objects O ON C.object_id=O.object_id\n"
             + "                              AND O.type='U' AND O.is_ms_shipped=0\n"
@@ -29,10 +29,10 @@ public class SqlServer extends Generator {
             + "                                         AND C.column_id=D.parent_column_id AND C.default_object_id=D.[object_id]\n"
             + "  LEFT JOIN sys.extended_properties PFD ON PFD.class=1\n"
             + "                                           AND C.[object_id]=PFD.major_id AND C.column_id=PFD.minor_id\n"
-            + "  -- AND PFD.name='Caption' -- 字段说明对应的描述名称(一个字段可以添加多个不同name的描述)\n"
+            + "  -- AND PFD.name='Caption' -- Field description corresponding description name(One field can add multiple descriptions of different names)\n"
             + "  LEFT JOIN sys.extended_properties PTB ON PTB.class=1\n"
             + "                                           AND PTB.minor_id=0 AND C.[object_id]=PTB.major_id\n"
-            + "  -- AND PFD.name='Caption' -- 表说明对应的描述名称(一个表可以添加多个不同name的描述)\n" + "  LEFT JOIN -- 索引及主键信息\n" + "  (\n"
+            + "  -- AND PFD.name='Caption' -- Table description corresponding description name(A table can add multiple descriptions of different names)\n" + "  LEFT JOIN -- Index and primary key information\n" + "  (\n"
             + "    SELECT\n" + "      IDXC.[object_id],\n" + "      IDXC.column_id,\n"
             + "        Sort=CASE INDEXKEY_PROPERTY(IDXC.[object_id],IDXC.index_id,IDXC.index_column_id,'IsDescending')\n"
             + "             WHEN 1 THEN 'DESC' WHEN 0 THEN 'ASC' ELSE '' END,\n"
@@ -42,12 +42,12 @@ public class SqlServer extends Generator {
             + "                                           AND IDX.index_id=IDXC.index_id\n"
             + "      LEFT JOIN sys.key_constraints KC ON IDX.[object_id]=KC.[parent_object_id]\n"
             + "                                          AND IDX.index_id=KC.unique_index_id\n"
-            + "      INNER JOIN -- 对于一个列包含多个索引的情况,只显示第1个索引信息\n" + "      (\n"
+            + "      INNER JOIN -- For a column containing multiple indexes, only the first index information is displayed\n" + "      (\n"
             + "        SELECT [object_id], Column_id, index_id=MIN(index_id)\n" + "        FROM sys.index_columns\n"
             + "        GROUP BY [object_id], Column_id\n" + "      ) IDXCUQ ON IDXC.[object_id]=IDXCUQ.[object_id]\n"
             + "                  AND IDXC.Column_id=IDXCUQ.Column_id    AND IDXC.index_id=IDXCUQ.index_id\n"
             + "  ) IDX ON C.[object_id]=IDX.[object_id]\n" + "           AND C.column_id=IDX.column_id\n"
-            + "WHERE O.name='@tablename' -- 如果只查询指定表,加上此条件\n" + "ORDER BY O.name,C.column_id";
+            + "WHERE O.name='@tablename' -- If you only query the specified table, add this condition\n" + "ORDER BY O.name,C.column_id";
 
     public SqlServer(String dbName, SimpleDataSource dataSource) {
         super(dbName, dataSource);

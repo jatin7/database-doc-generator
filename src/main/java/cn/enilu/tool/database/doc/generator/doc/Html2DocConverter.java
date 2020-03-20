@@ -9,6 +9,7 @@ import java.io.*;
  * Html2DocConverter
  *
  * @author zt
+ * @author jatin
  * @version 2019/1/12 0012
  */
 public class Html2DocConverter {
@@ -60,7 +61,7 @@ public class Html2DocConverter {
             fos = new FileOutputStream(this.outputPath);
             poifs.writeFilesystem(fos);
 
-            System.out.println("转换word文件完成!");
+            System.out.println("Conversion of word files is complete!");
 
             return true;
         } catch (IOException e) {

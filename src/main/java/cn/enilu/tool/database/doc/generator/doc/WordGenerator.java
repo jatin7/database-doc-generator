@@ -15,6 +15,7 @@ import java.util.Map;
  * WordGenerator
  *
  * @author zt
+ * @author jatin
  * @version 2019/1/12 0012
  */
 public class WordGenerator {
@@ -62,15 +63,15 @@ public class WordGenerator {
         List<TableVo> list = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             TableVo tableVo = new TableVo();
-            tableVo.setTable("表" + i);
-            tableVo.setComment("注释" + i);
+            tableVo.setTable("table" + i);
+            tableVo.setComment("Comment" + i);
             List<ColumnVo> columns = new ArrayList<>();
             for (int j = 0; j < 5; j++) {
                 ColumnVo columnVo = new ColumnVo();
                 columnVo.setName("name" + j);
-                columnVo.setComment("注释" + j);
+                columnVo.setComment("Comment" + j);
                 columnVo.setKey("PRI");
-                columnVo.setIsNullable("是");
+                columnVo.setIsNullable("Yes");
                 columnVo.setType("varchar(2");
                 columns.add(columnVo);
 

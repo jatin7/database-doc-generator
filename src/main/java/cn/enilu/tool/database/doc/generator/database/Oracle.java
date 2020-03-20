@@ -50,7 +50,7 @@ public class Oracle  extends Generator{
             ColumnVo column = new ColumnVo();
             column.setName(record.getString("column_name"));
             column.setType(record.getString("data_type"));
-            column.setIsNullable(record.getString("nullable").equals("Y")?"是":"否");
+            column.setIsNullable(record.getString("nullable").equals("Y")?"Yes":"no");
 
             for(Record comment:columnComments){
                 if(comment.getString("column_name").equals(column.getName())){

@@ -54,7 +54,7 @@ public class PostgreSQL extends Generator {
             ColumnVo column = new ColumnVo();
             column.setName(record.getString("field"));
             column.setType(record.getString("type"));
-            column.setIsNullable(record.getString("notnull").equals("true")?"否":"是");
+            column.setIsNullable(record.getString("notnull").equals("true")?"No":"Yes");
             column.setComment(record.getString("comment"));
             columnVoList.add(column);
         }

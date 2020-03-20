@@ -9,6 +9,7 @@ import java.util.Scanner;
  * Main
  *
  * @author zt
+ * @author jatin
  * @version 2018/10/6 0006
  */
 public class Main {

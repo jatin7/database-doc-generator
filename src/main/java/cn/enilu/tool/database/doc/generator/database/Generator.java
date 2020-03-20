@@ -20,6 +20,7 @@ import java.util.Scanner;
  * Generator
  *
  * @author zt
+ * @author jatin
  * @version 2019/1/6 0006
  */
 public abstract class Generator {
@@ -36,7 +37,7 @@ public abstract class Generator {
     }
 
     /**
-     * 获取表结构数据
+     * Get table structure data
      *
      * @return
      */
@@ -46,7 +47,7 @@ public abstract class Generator {
         File docDir = new File(docPath);
         if (docDir.exists()) {
 
-            String str = "\n【温馨提示】 - 文件夹" + docPath + "已存在。 是否删除?(y 默认删除)\n";
+            String str = "\n【Tips】 - folder" + docPath + "existed。 delete or not?(y Delete by default)\n";
             //throw new RuntimeException(str);
             System.out.print(str);
 
@@ -93,7 +94,7 @@ public abstract class Generator {
     }
 
     private void saveReadme(List<TableVo> tables) {
-        StringBuilder builder = new StringBuilder("# " + dbName + "数据库文档").append("\r\n");
+        StringBuilder builder = new StringBuilder("# " + dbName + "Database Document").append("\r\n");
         for (TableVo tableVo : tables) {
             builder.append("- [" + (Strings.isEmpty(tableVo.getComment()) ? tableVo.getTable() : tableVo.getComment())
                     + "]" +
@@ -114,7 +115,7 @@ public abstract class Generator {
 
         StringBuilder builder = new StringBuilder("# " + (Strings.isBlank(table.getComment()) ? table.getTable() : table
                 .getComment()) + "(" + table.getTable() + ")").append("\r\n");
-        builder.append("| 列名   | 类型   | KEY  | 可否为空 | 注释   |").append("\r\n");
+        builder.append("| Column name   | Types    | KEY  | IsNull | Comment   |").append("\r\n");
         builder.append("| ---- | ---- | ---- | ---- | ---- |").append("\r\n");
         List<ColumnVo> columnVos = table.getColumns();
         for (int i = 0; i < columnVos.size(); i++) {
