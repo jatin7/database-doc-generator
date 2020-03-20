@@ -10,14 +10,14 @@
 </head>
 
 <body>
-<h1 style="text-align: center;">${dbName}数据库设计文档</h1>
-<h2>表汇总</h2>
+<h1 style="text-align: center;">${dbName}Database Design Document</h1>
+<h2>Table Summary</h2>
 <table width="100%">
 
     <thead style="background-color: #b9c9fe;font-weight: bold;">
     <tr>
-        <td> 名称</td>
-        <td>备注</td>
+        <td> Name</td>
+        <td>Note</td>
     </tr>
     </thead>
     <tbody>
@@ -29,18 +29,18 @@
     </#list>
     </tbody>
 </table>
-<h2>表明细</h2>
+<h2>Show</h2>
 <#list tables as item>
 <br>
 <h3>${item.comment?default('')}(${item.table})</h3>
 <table   width="100%">
     <thead style="background-color: #b9c9fe;font-weight: bold;">
     <tr>
-        <td>列名</td>
-        <td>类型</td>
+        <td>Column name</td>
+        <td>Type</td>
         <td>KEY</td>
-        <td>可否为空</td>
-        <td>注释</td>
+        <td>IsNull</td>
+        <td>Comment</td>
     </tr>
     </thead>
     <tbody>
